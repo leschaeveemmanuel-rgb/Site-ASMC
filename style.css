@@ -1,0 +1,264 @@
+/* --- STYLES GÉNÉRAUX --- */
+body {
+    margin: 0;
+    padding-top: 80px; /* Évite que le menu cache le haut des pages */
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- NAVIGATION (LES ONGLETS) --- */
+nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+nav a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.2s;
+    font-size: 0.9em;
+}
+nav a:hover, nav a.active {
+    color: #0057b7;
+}
+
+/* --- BANNIÈRE (SPÉCIFIQUE ACCUEIL) --- */
+.banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0; /* Supprime l'espace blanc sous l'image */
+}
+.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    white-space: nowrap;
+    font-weight: bold;
+    line-height: normal;
+}
+
+/* --- CONTENU ET CARTES --- */
+.content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.welcome-text {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* Style pour les listes d'avions et calendrier */
+.aircraft, .event-card, .section {
+    display: flex;
+    gap: 25px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    align-items: center;
+}
+.aircraft img, .event-image img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* --- PIED DE PAGE --- */
+footer {
+    margin-top: auto;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.footer-links a {
+    text-decoration: none;
+    color: #666666;
+    font-size: 0.85em;
+}
+.footer-copy {
+    margin-top: 15px;
+    font-size: 0.85em;
+    color: #666; /* Couleur du texte normal */
+}
+
+.footer-copy a {
+    color: #666; /* Le lien a la même couleur que le texte au départ */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Rend le changement fluide */
+}
+
+/* L'effet "actif" au passage de la souris */
+.footer-copy a:hover {
+    color: #0057b7; /* Devient bleu au survol */
+    text-decoration: underline; /* Se souligne au survol */
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    body { padding-top: 130px; }
+    .banner-text { font-size: 1.2em; bottom: 10px; }
+    .welcome-text { font-size: 1.1em; }
+    .aircraft, .event-card { flex-direction: column; text-align: center; }
+    .aircraft img, .event-image img { width: 100%; height: auto; }
+}
+/* --- STYLE SPÉCIFIQUE POUR L'HISTORIQUE --- */
+.historique ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.historique li {
+    display: flex;
+    gap: 30px; /* C'est ici qu'on définit l'espace entre la date et l'événement */
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    align-items: baseline;
+}
+
+.date {
+    font-weight: bold;
+    color: #0057b7;
+    min-width: 60px; /* Aligne toutes les dates sur la même colonne */
+    flex-shrink: 0;
+}
+
+.evenement {
+    flex: 1; /* Le texte prend tout le reste de la place */
+}
+
+/* Ajustement pour mobile */
+@media (max-width: 600px) {
+    .historique li {
+        flex-direction: column; /* On empile sur téléphone */
+        gap: 5px;
+    }
+}
+/* --- PAGE CONTACT AMÉLIORÉE --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 2 colonnes : Infos (étroit) / Formulaire (large) */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Cartes des responsables */
+.info-card {
+    background: #f8f9fa;
+    border-left: 4px solid #0057b7;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.info-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #0057b7;
+}
+
+.info-card p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style du formulaire */
+.form-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #0057b7;
+    box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.1);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #0057b7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #003d82;
+}
+
+/* Mobile : on empile les colonnes */
+@media (max-width: 850px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
